@@ -17,6 +17,9 @@ MongoClient.connect(uri, { useNewUrlParser: true })
 
     }).catch(error => console.error(error));
 
+app.get("/", function (request, response) {
+    response.sendFile(__dirname + "/index.html")
+});
 app.get("/questions", function (request, response) {
     const collection = request.app.locals.collection;
     collection.find({}).project({ correct: 0 }).toArray(function (err, result) {
@@ -47,22 +50,22 @@ app.post("/result", jsonParser, function (request, response) {
 });
 
 function getScore(userAnswers, correctAnswers) {
-    console.log (userAnswers);
+    console.log(userAnswers);
     console.log("\n");
     console.log(correctAnswers);
     var correctCount = 0;
 
     for (var i = 0; i < userAnswers.length; i++) {
-        var tmpAnswer = correctAnswers.find((obj) => { return obj._id == userAnswers[i].id}).correct;
-        console.log (tmpAnswer);
+        var tmpAnswer = correctAnswers.find((obj) => { return obj._id == userAnswers[i].id }).correct;
+        console.log(tmpAnswer);
         var cryptoAnswer = crypto.createHash('md5').update(userAnswers[i].answer).digest('hex');
-        console.log (cryptoAnswer);
+        console.log(cryptoAnswer);
         if (tmpAnswer === cryptoAnswer) {
-          correctCount++;
+            correctCount++;
         }
     }
-        console.log(correctCount);
-    
+    console.log(correctCount);
+
     return correctCount;
 
 }
