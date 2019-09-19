@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>UI Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Основы front-end разработки</h1>
+        <p>Добро пожаловать!</p>
+    </div>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#" onclick="startTest()">Test Room</a>
+    </div>
+    <div class="row">
+        <div class="main">
+            <div class="quiz">
+                    <p>Здесь вы найдете небольшой и легкий тест. <br/> Удачи!</p>
+                    <div class='button' id="index">
+                        <a href="#" onclick="startTest()">Начать</a>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="footer">
+            &copy Кандалова Лейла, 2019
+        </div>
+    </div>
+
+    <script>
+        function startTest() {
+            $.get("/questions", function (data) {
+                window.location = 'http://localhost:3000/test2.html';
+            });
+        }
+    </script>
+</body>
+
+</html>

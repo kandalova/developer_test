@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Test Room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Основы front-end разработки</h1>
+        <p>Тестирование</p>
+    </div>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#" onclick="startTest()">Test Room</a>
+    </div>
+    <div class="row">
+        <div class="main">
+            <div id='container'>
+                <div id='title'>
+                    <h1>Выберете правильный ответ</h1>
+                </div>
+                <br />
+                <div class="quiz" id='quiz'>
+                    <div id="question">
+                        <p></p>
+                        <h2></h2>
+                        
+                    </div>
+                    <hr id="hr"/>
+                    <form id="list">
+
+                    </form>
+                    
+                </div>   
+                <div class="lowernav">
+                    <div class='button' id='next'><a href='#'>Далее</a></div>
+                    <div class='button' id='prev'><a href='#'>Назад</a></div>
+                
+                    <div class='button' id='complete' > <a href='#'>Завершить</a></div>
+                    <div class='button' id='start' > <a href='#'>Пройти снова</a></div>
+                </div>          
+         
+            </div>
+        </div>
+        <div class="footer">
+            &copy Кандалова Лейла, 2019
+        </div>
+    </div>
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script type='text/javascript' src='questions.js'></script>
+    <script type='text/javascript' src='test.js'></script>
+</body>
+
+</html>
